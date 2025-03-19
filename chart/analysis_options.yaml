@@ -13,8 +13,10 @@ analyzer:
     - "**/*.freezed.dart"
 
   errors:
+    avoid_function_literals_in_foreach_calls: ignore
     constant_identifier_names: ignore
     invalid_annotation_target: ignore
+    library_private_types_in_public_api: ignore
 
 include: package:flutter_lints/flutter.yaml
 
