@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
+import 'package:sof_tracker/app/modules/home/chart/components/tab_item.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gap/gap.dart';
+import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 
 import 'package:sof_tracker/app/data/di.dart';
 import 'package:sof_tracker/app/global/packages/graph_painter/chart.dart';
@@ -18,73 +21,142 @@ class ChartView extends BaseSilverView<ChartController> {
     final theme = Theme.of(context);
 
     return Scaffold(
-      backgroundColor: theme.colorScheme.primary,
+      backgroundColor: $r.theme.black,
       body: SafeArea(
-        child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 4.w),
-          child: Column(
+        child: Obx(
+          () => Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              //* Chart
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 32.h),
+                height: 226.h,
+                width: 399.w,
+                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                margin: EdgeInsets.symmetric(horizontal: 16),
                 decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.surface,
-                  borderRadius: BorderRadius.circular(24.r),
+                  color: $r.theme.white,
+                  borderRadius: BorderRadius.circular(8),
+                  boxShadow: [
+                    BoxShadow(
+                      color: theme.colorScheme.primaryContainer.withValues(alpha: 0.2),
+                      blurRadius: 8.r,
+                      offset: Offset(0, 4),
+                    ),
+                  ],
                 ),
-                child: Stack(
+                child: Column(
                   children: [
-                    LineChart.multiple(
-                      controller.getMap(),
-                      height: height * 0.4,
-                      stack: false,
-                      smoothCurves: controller.smoothPoints,
-                      itemColor: theme.colorScheme.secondary.withValues(alpha: 0.0),
-                      chartItemOptions: BubbleItemOptions(
-                        maxBarWidth: 10,
-                        bubbleItemBuilder: (data) {
-                          return BubbleItem(color: [$r.theme.black, $r.theme.red, $r.theme.blue][data.listIndex]);
-                        },
+                    DefaultTabController(
+                      length: 2,
+                      child: Container(
+                        height: 48,
+                        decoration: BoxDecoration(color: $r.theme.neutral4, borderRadius: BorderRadius.circular(16.r)),
+                        child: TabBar(
+                          controller: controller.tabController,
+                          indicatorColor: $r.theme.transparent,
+                          dividerColor: $r.theme.transparent,
+                          indicatorSize: TabBarIndicatorSize.tab,
+                          unselectedLabelColor: $r.theme.neutral3,
+                          unselectedLabelStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+                          labelColor: $r.theme.white,
+                          labelPadding: EdgeInsets.zero,
+                          labelStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                          onTap: (index) => controller.onTabChange(index),
+                          tabs: [
+                            TabItem(
+                              itemName: "Dinero en",
+                              isSelected: controller.currentTabIndex.value == 0,
+                              value: "24,925.00",
+                              unit: "\$",
+                            ),
+                            TabItem(
+                              itemName: "Gastos",
+                              isSelected: controller.currentTabIndex.value == 1,
+                              value: "4,925.10",
+                              unit: "-\$",
+                            ),
+                          ],
+                        ),
                       ),
-                      backgroundDecorations: [
-                        GridDecoration(
-                          showVerticalGrid: false,
-                          showHorizontalGrid: true,
-                          showVerticalValues: true,
-                          textStyle: theme.textTheme.bodySmall,
-                          gridColor: theme.colorScheme.primaryContainer.withValues(alpha: 0.2),
-                        ),
-                        SparkLineDecoration(
-                          smoothPoints: true,
-                          fill: true,
-                          lineColor: $r.theme.blue.withValues(alpha: 0.2),
-                          listIndex: 0,
-                        ),
+                    ),
+                    Gap(24.h),
 
-                        // WidgetDecoration(
-                        //   widgetDecorationBuilder: (context, chartState, itemWidth, verticalMultiplier) {
-                        //     return Positioned(
-                        //       top: 0,
-                        //       right: 0,
-                        //       child: Container(
-                        //         width: 4.w,
-                        //         height: 4.w,
-                        //         decoration: BoxDecoration(
-                        //           color: $r.theme.blue.withValues(alpha: 0.8),
-                        //           shape: BoxShape.circle,
-                        //         ),
-                        //       ),
-                        //     );
-                        //   },
-                        // ),
-                      ],
-                      foregroundDecorations: [
-                        SparkLineDecoration(lineWidth: 2.0, smoothPoints: true, lineColor: $r.theme.blue),
-                        SparkLineDecoration(
-                          lineWidth: 1.5,
-                          lineColor: Colors.grey,
-                          smoothPoints: true,
-                          dashArray: [5, 5], // Dotted line for 3-month average
+                    Expanded(
+                      child: LineChart(
+                        data: controller.getMap(),
+                        dataToValue: (item) => item.max ?? 0,
+                        itemColor: controller.currentTabIndex.value == 0 ? $r.theme.blue : $r.theme.red,
+                        lineWidth: 1.5,
+                        chartItemOptions: BubbleItemOptions(
+                          maxBarWidth: 8.r,
+                          bubbleItemBuilder: (data) {
+                            final isLastDay = data.itemIndex == controller.lineValues.length - 1;
+                            final isCurrentTab = controller.currentTabIndex.value == 0;
+                            final color =
+                                isLastDay ? (isCurrentTab ? $r.theme.blue : $r.theme.red) : $r.theme.transparent;
+                            return BubbleItem(
+                              color: data.listIndex == 0 ? color : $r.theme.transparent,
+                            );
+                          },
+                        ),
+                        chartBehaviour: ChartBehaviour(
+                          onItemClicked: (value) {
+                            controller.onItemHoverEnter(value);
+                          },
+                          onItemHoverEnter: (value) {
+                            controller.onItemHoverEnter(value);
+                          },
+                        ),
+                        backgroundDecorations: [
+                          GridDecoration(
+                            showVerticalGrid: false,
+                            showHorizontalGrid: true,
+                            showVerticalValues: true,
+                            horizontalAxisStep: 10,
+                            textStyle: theme.textTheme.labelSmall!.copyWith(fontSize: 10),
+                            gridColor: theme.colorScheme.primaryContainer.withValues(alpha: 0.1),
+                            verticalAxisValueFromIndex: (value) => controller.customAxisValueFromIndex(
+                              value,
+                              controller.selectedValue!.value.toDouble(),
+                            ),
+                            verticalValuesPadding: EdgeInsets.only(top: 8.h),
+                            verticalTextAlign: TextAlign.center,
+                          ),
+                          SparkLineDecoration(
+                            fill: true,
+                            smoothPoints: false,
+                            lineColor: controller.currentTabIndex.value == 0
+                                ? $r.theme.blue.withValues(alpha: 0.1)
+                                : $r.theme.red.withValues(alpha: 0.1),
+                            listIndex: 0,
+                          ),
+                        ],
+                        foregroundDecorations: [
+                          //* Tooltip
+                          // SelectedItemDecoration(
+                          //   controller.selected.value,
+                          //   selectedColor: $r.theme.blue.withValues(alpha: 0.2),
+                          //   backgroundColor: $r.theme.neutral3.withValues(alpha: .5),
+                          // ),
+                        ],
+                      ),
+                    ),
+
+                    //* Legend
+                    Gap(8.h),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              width: 24,
+                              height: 2.h,
+                              decoration: BoxDecoration(color: $r.theme.blue, borderRadius: BorderRadius.circular(2.r)),
+                            ),
+                            Gap(4.w),
+                            Text("Current Month", style: text10.semiBold.copyWith(color: $r.theme.blue, fontSize: 14)),
+                          ],
                         ),
                       ],
                     ),

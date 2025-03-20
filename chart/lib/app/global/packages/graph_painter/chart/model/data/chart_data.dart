@@ -14,22 +14,19 @@ class ChartData<T> {
     this.axisMax,
     this.valueAxisMaxOver,
     this.axisMin,
-  }) : minValue = _getMinValue<T>(
-         dataStrategy
-             .formatDataStrategy(_items)
-             .fold(<ChartItem<T?>>[], (List<ChartItem<T?>> list, element) => list..addAll(element))
-             .toList(),
-         axisMin,
-       ),
-       maxValue =
-           _getMaxValue(
-             dataStrategy
-                 .formatDataStrategy(_items)
-                 .fold(<ChartItem<T?>>[], (List<ChartItem<T?>> list, element) => list..addAll(element))
-                 .toList(),
-             axisMax,
-           ) +
-           (valueAxisMaxOver ?? 0.0);
+  })  : minValue = _getMinValue<T>(
+          dataStrategy
+              .formatDataStrategy(_items)
+              .fold(<ChartItem<T?>>[], (List<ChartItem<T?>> list, element) => list..addAll(element)).toList(),
+          axisMin,
+        ),
+        maxValue = _getMaxValue(
+              dataStrategy
+                  .formatDataStrategy(_items)
+                  .fold(<ChartItem<T?>>[], (List<ChartItem<T?>> list, element) => list..addAll(element)).toList(),
+              axisMax,
+            ) +
+            (valueAxisMaxOver ?? 0.0);
 
   /// Make chart data from list of [ChartItem]'s
   factory ChartData.fromList(List<ChartItem<T>> items, {double? axisMax, double? axisMin, double? valueAxisMaxOver}) {
@@ -44,12 +41,11 @@ class ChartData<T> {
     double? valueAxisMaxOver,
   }) {
     return ChartData<T?>([
-          List.generate(
-            items,
-            (index) => ChartItem<T>((Random().nextDouble() * (maxValue - minValue)) + minValue),
-          ).toList(),
-        ], valueAxisMaxOver: valueAxisMaxOver)
-        as ChartData<T>;
+      List.generate(
+        items,
+        (index) => ChartItem<T>((Random().nextDouble() * (maxValue - minValue)) + minValue),
+      ).toList(),
+    ], valueAxisMaxOver: valueAxisMaxOver) as ChartData<T>;
   }
 
   ChartData._lerp(
@@ -210,10 +206,9 @@ class ChartItemsLerp {
         return firstItem ?? emptyValue;
       }
 
-      final value =
-          listLength.floor() == index
-              ? min(1, (1 - (listLength - listLength.floor())) + t / listLength)
-              : listLength.floor() >= index
+      final value = listLength.floor() == index
+          ? min(1, (1 - (listLength - listLength.floor())) + t / listLength)
+          : listLength.floor() >= index
               ? 0
               : t;
       return firstItem.animateTo(emptyValue, value.toDouble());

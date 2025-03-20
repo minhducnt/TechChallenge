@@ -18,17 +18,20 @@ class I10n {
   static I10n? _current;
 
   static I10n get current {
-    assert(_current != null,
-        'No instance of I10n was loaded. Try to initialize the I10n delegate before accessing I10n.current.');
+    assert(
+      _current != null,
+      'No instance of I10n was loaded. Try to initialize the I10n delegate before accessing I10n.current.',
+    );
     return _current!;
   }
 
   static const AppLocalizationDelegate delegate = AppLocalizationDelegate();
 
   static Future<I10n> load(Locale locale) {
-    final name = (locale.countryCode?.isEmpty ?? false)
-        ? locale.languageCode
-        : locale.toString();
+    final name =
+        (locale.countryCode?.isEmpty ?? false)
+            ? locale.languageCode
+            : locale.toString();
     final localeName = Intl.canonicalizedLocale(name);
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;
@@ -41,8 +44,10 @@ class I10n {
 
   static I10n of(BuildContext context) {
     final instance = I10n.maybeOf(context);
-    assert(instance != null,
-        'No instance of I10n present in the widget tree. Did you add I10n.delegate in localizationsDelegates?');
+    assert(
+      instance != null,
+      'No instance of I10n present in the widget tree. Did you add I10n.delegate in localizationsDelegates?',
+    );
     return instance!;
   }
 
@@ -122,32 +127,17 @@ class I10n {
 
   /// `OK`
   String get ok {
-    return Intl.message(
-      'OK',
-      name: 'ok',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('OK', name: 'ok', desc: '', args: []);
   }
 
   /// `Cancel`
   String get cancel {
-    return Intl.message(
-      'Cancel',
-      name: 'cancel',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Cancel', name: 'cancel', desc: '', args: []);
   }
 
   /// `Loading...`
   String get loadingText {
-    return Intl.message(
-      'Loading...',
-      name: 'loadingText',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Loading...', name: 'loadingText', desc: '', args: []);
   }
 
   /// `Press back again to exit`
@@ -162,12 +152,7 @@ class I10n {
 
   /// `Try again`
   String get tryAgain {
-    return Intl.message(
-      'Try again',
-      name: 'tryAgain',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Try again', name: 'tryAgain', desc: '', args: []);
   }
 
   /// `Please try again`
@@ -202,32 +187,17 @@ class I10n {
 
   /// `View List`
   String get viewList {
-    return Intl.message(
-      'View List',
-      name: 'viewList',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('View List', name: 'viewList', desc: '', args: []);
   }
 
   /// `Home`
   String get home {
-    return Intl.message(
-      'Home',
-      name: 'home',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Home', name: 'home', desc: '', args: []);
   }
 
   /// `Favorite`
   String get favorite {
-    return Intl.message(
-      'Favorite',
-      name: 'favorite',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Favorite', name: 'favorite', desc: '', args: []);
   }
 
   /// `Reputation History`
@@ -242,22 +212,72 @@ class I10n {
 
   /// `Reputation`
   String get reputation {
-    return Intl.message(
-      'Reputation',
-      name: 'reputation',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Reputation', name: 'reputation', desc: '', args: []);
   }
 
   /// `Chart`
   String get chart {
-    return Intl.message(
-      'Chart',
-      name: 'chart',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Chart', name: 'chart', desc: '', args: []);
+  }
+
+  /// `January`
+  String get january {
+    return Intl.message('January', name: 'january', desc: '', args: []);
+  }
+
+  /// `February`
+  String get february {
+    return Intl.message('February', name: 'february', desc: '', args: []);
+  }
+
+  /// `March`
+  String get march {
+    return Intl.message('March', name: 'march', desc: '', args: []);
+  }
+
+  /// `April`
+  String get april {
+    return Intl.message('April', name: 'april', desc: '', args: []);
+  }
+
+  /// `May`
+  String get may {
+    return Intl.message('May', name: 'may', desc: '', args: []);
+  }
+
+  /// `June`
+  String get june {
+    return Intl.message('June', name: 'june', desc: '', args: []);
+  }
+
+  /// `July`
+  String get july {
+    return Intl.message('July', name: 'july', desc: '', args: []);
+  }
+
+  /// `August`
+  String get august {
+    return Intl.message('August', name: 'august', desc: '', args: []);
+  }
+
+  /// `September`
+  String get september {
+    return Intl.message('September', name: 'september', desc: '', args: []);
+  }
+
+  /// `October`
+  String get october {
+    return Intl.message('October', name: 'october', desc: '', args: []);
+  }
+
+  /// `November`
+  String get november {
+    return Intl.message('November', name: 'november', desc: '', args: []);
+  }
+
+  /// `December`
+  String get december {
+    return Intl.message('December', name: 'december', desc: '', args: []);
   }
 }
 

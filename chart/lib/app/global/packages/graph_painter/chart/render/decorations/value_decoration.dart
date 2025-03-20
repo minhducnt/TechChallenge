@@ -8,7 +8,7 @@ double defaultValueForItem(ChartItem item) => item.max ?? 0.0;
 /// Draw value of the items on them.
 /// Use this only as [ChartState.foregroundDecorations] in order to be visible at all locations
 /// Exact alignment can be set with [alignment]
-@Deprecated('Use [WidgetItemBuilder] instead if you want to decorate chart items with text')
+// @Deprecated('Use [WidgetItemBuilder] instead if you want to decorate chart items with text')
 class ValueDecoration extends DecorationPainter {
   /// Constructor for values decoration
   ValueDecoration({

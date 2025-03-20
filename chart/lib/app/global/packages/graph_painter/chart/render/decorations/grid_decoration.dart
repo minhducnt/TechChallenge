@@ -33,9 +33,9 @@ class GridDecoration extends DecorationPainter {
     ShowLineForValue? showHorizontalLineForValue,
     TextStyle? textStyle,
   }) : assert(
-         textStyle != null || !(showHorizontalValues || showTopHorizontalValue || showVerticalValues),
-         'Need to provide text style for values to be visible!',
-       ) {
+          textStyle != null || !(showHorizontalValues || showTopHorizontalValue || showVerticalValues),
+          'Need to provide text style for values to be visible!',
+        ) {
     _horizontalAxisDecoration = HorizontalAxisDecoration(
       showValues: showHorizontalValues,
       endWithChart: endWithChartHorizontal,
@@ -73,8 +73,8 @@ class GridDecoration extends DecorationPainter {
   GridDecoration._lerp({
     required HorizontalAxisDecoration horizontalAxisDecoration,
     required VerticalAxisDecoration verticalAxisDecoration,
-  }) : _horizontalAxisDecoration = horizontalAxisDecoration,
-       _verticalAxisDecoration = verticalAxisDecoration;
+  })  : _horizontalAxisDecoration = horizontalAxisDecoration,
+        _verticalAxisDecoration = verticalAxisDecoration;
 
   late HorizontalAxisDecoration _horizontalAxisDecoration;
   late VerticalAxisDecoration _verticalAxisDecoration;

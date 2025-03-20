@@ -16,8 +16,8 @@ class SparkLineDecoration extends DecorationPainter {
     this.listIndex = 0,
     this.dashArray,
     bool stretchLine = false,
-  }) : _smoothPoints = smoothPoints ? 1.0 : 0.0,
-       _stretchLine = stretchLine ? 1.0 : 0.0;
+  })  : _smoothPoints = smoothPoints ? 1.0 : 0.0,
+        _stretchLine = stretchLine ? 1.0 : 0.0;
 
   SparkLineDecoration._lerp({
     this.id,
@@ -30,8 +30,8 @@ class SparkLineDecoration extends DecorationPainter {
     this.listIndex = 0,
     required this.dashArray,
     double stretchLine = 0.0,
-  }) : _smoothPoints = smoothPoints,
-       _stretchLine = stretchLine;
+  })  : _smoothPoints = smoothPoints,
+        _stretchLine = stretchLine;
 
   /// Is line or fill, line will have [lineWidth], setting
   /// [fill] to true will ignore [lineWidth]
@@ -91,11 +91,10 @@ class SparkLineDecoration extends DecorationPainter {
 
   @override
   void draw(Canvas canvas, Size size, ChartState state) {
-    final paint =
-        Paint()
-          ..color = lineColor
-          ..style = fill ? PaintingStyle.fill : PaintingStyle.stroke
-          ..strokeWidth = lineWidth;
+    final paint = Paint()
+      ..color = lineColor
+      ..style = fill ? PaintingStyle.fill : PaintingStyle.stroke
+      ..strokeWidth = lineWidth;
 
     final maxValue = state.data.maxValue - state.data.minValue;
     final scale = size.height / maxValue;

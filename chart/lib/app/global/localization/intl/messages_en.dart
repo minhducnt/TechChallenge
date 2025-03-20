@@ -22,38 +22,60 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
-        "chart": MessageLookupByLibrary.simpleMessage("Chart"),
-        "communication_error": MessageLookupByLibrary.simpleMessage(
-            "There was an error with our communication with the servers."),
-        "doubleTabToExit":
-            MessageLookupByLibrary.simpleMessage("Press back again to exit"),
-        "favorite": MessageLookupByLibrary.simpleMessage("Favorite"),
-        "home": MessageLookupByLibrary.simpleMessage("Home"),
-        "loadingText": MessageLookupByLibrary.simpleMessage("Loading..."),
-        "noBookmarks": MessageLookupByLibrary.simpleMessage(
-            "You have not bookmarked anyone yet"),
-        "noData":
-            MessageLookupByLibrary.simpleMessage("Currently no data available"),
-        "noInternetConnection": MessageLookupByLibrary.simpleMessage(
-            "No internet connection. Please try again later."),
-        "ok": MessageLookupByLibrary.simpleMessage("OK"),
-        "pleaseTryAgain":
-            MessageLookupByLibrary.simpleMessage("Please try again"),
-        "reputation": MessageLookupByLibrary.simpleMessage("Reputation"),
-        "reputationHistory":
-            MessageLookupByLibrary.simpleMessage("Reputation History"),
-        "server_failure":
-            MessageLookupByLibrary.simpleMessage("Server failure encountered."),
-        "somethingWentWrong":
-            MessageLookupByLibrary.simpleMessage("Something went wrong"),
-        "somethingWentWrongAgain": MessageLookupByLibrary.simpleMessage(
-            "Something went wrong!! Please try again."),
-        "somethingWentWrongTryAgain": MessageLookupByLibrary.simpleMessage(
-            "Đã xảy ra lỗi. Vui lòng thử lại"),
-        "tryAgain": MessageLookupByLibrary.simpleMessage("Try again"),
-        "unauthenticated_error":
-            MessageLookupByLibrary.simpleMessage("Unauthenticated error"),
-        "viewList": MessageLookupByLibrary.simpleMessage("View List")
-      };
+    "april": MessageLookupByLibrary.simpleMessage("April"),
+    "august": MessageLookupByLibrary.simpleMessage("August"),
+    "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+    "chart": MessageLookupByLibrary.simpleMessage("Chart"),
+    "communication_error": MessageLookupByLibrary.simpleMessage(
+      "There was an error with our communication with the servers.",
+    ),
+    "december": MessageLookupByLibrary.simpleMessage("December"),
+    "doubleTabToExit": MessageLookupByLibrary.simpleMessage(
+      "Press back again to exit",
+    ),
+    "favorite": MessageLookupByLibrary.simpleMessage("Favorite"),
+    "february": MessageLookupByLibrary.simpleMessage("February"),
+    "home": MessageLookupByLibrary.simpleMessage("Home"),
+    "january": MessageLookupByLibrary.simpleMessage("January"),
+    "july": MessageLookupByLibrary.simpleMessage("July"),
+    "june": MessageLookupByLibrary.simpleMessage("June"),
+    "loadingText": MessageLookupByLibrary.simpleMessage("Loading..."),
+    "march": MessageLookupByLibrary.simpleMessage("March"),
+    "may": MessageLookupByLibrary.simpleMessage("May"),
+    "noBookmarks": MessageLookupByLibrary.simpleMessage(
+      "You have not bookmarked anyone yet",
+    ),
+    "noData": MessageLookupByLibrary.simpleMessage(
+      "Currently no data available",
+    ),
+    "noInternetConnection": MessageLookupByLibrary.simpleMessage(
+      "No internet connection. Please try again later.",
+    ),
+    "november": MessageLookupByLibrary.simpleMessage("November"),
+    "october": MessageLookupByLibrary.simpleMessage("October"),
+    "ok": MessageLookupByLibrary.simpleMessage("OK"),
+    "pleaseTryAgain": MessageLookupByLibrary.simpleMessage("Please try again"),
+    "reputation": MessageLookupByLibrary.simpleMessage("Reputation"),
+    "reputationHistory": MessageLookupByLibrary.simpleMessage(
+      "Reputation History",
+    ),
+    "september": MessageLookupByLibrary.simpleMessage("September"),
+    "server_failure": MessageLookupByLibrary.simpleMessage(
+      "Server failure encountered.",
+    ),
+    "somethingWentWrong": MessageLookupByLibrary.simpleMessage(
+      "Something went wrong",
+    ),
+    "somethingWentWrongAgain": MessageLookupByLibrary.simpleMessage(
+      "Something went wrong!! Please try again.",
+    ),
+    "somethingWentWrongTryAgain": MessageLookupByLibrary.simpleMessage(
+      "Đã xảy ra lỗi. Vui lòng thử lại",
+    ),
+    "tryAgain": MessageLookupByLibrary.simpleMessage("Try again"),
+    "unauthenticated_error": MessageLookupByLibrary.simpleMessage(
+      "Unauthenticated error",
+    ),
+    "viewList": MessageLookupByLibrary.simpleMessage("View List"),
+  };
 }

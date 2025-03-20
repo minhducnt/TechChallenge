@@ -1,4 +1,4 @@
-part of graph_painter;
+part of '../../../../chart.dart';
 
 typedef ItemBuilder<T> = dynamic Function(ItemBuilderData<T>);
 

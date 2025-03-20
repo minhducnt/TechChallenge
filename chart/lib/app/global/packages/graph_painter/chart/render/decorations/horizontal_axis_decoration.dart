@@ -40,8 +40,8 @@ class HorizontalAxisDecoration extends DecorationPainter {
     this.legendFontStyle = const TextStyle(fontSize: 12.0),
     this.showLineForValue,
     this.asFixedDecoration = false,
-  }) : assert(axisStep > 0, 'axisStep must be greater than zero!'),
-       _endWithChart = endWithChart ? 1.0 : 0.0;
+  })  : assert(axisStep > 0, 'axisStep must be greater than zero!'),
+        _endWithChart = endWithChart ? 1.0 : 0.0;
 
   HorizontalAxisDecoration._lerp({
     this.showValues = false,
@@ -160,11 +160,10 @@ class HorizontalAxisDecoration extends DecorationPainter {
 
   @override
   void draw(Canvas canvas, Size size, ChartState state) {
-    final paint =
-        Paint()
-          ..color = lineColor
-          ..style = PaintingStyle.stroke
-          ..strokeWidth = lineWidth;
+    final paint = Paint()
+      ..color = lineColor
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = lineWidth;
 
     canvas.save();
     final maxValue = state.data.maxValue - state.data.minValue;
@@ -243,7 +242,7 @@ class HorizontalAxisDecoration extends DecorationPainter {
   TextPainter _getTextPainter(String? text, {Size? size}) {
     final textPainter = TextPainter(
       text: TextSpan(text: text, style: legendFontStyle),
-      textScaleFactor: textScale,
+      textScaler: TextScaler.linear(textScale),
       textAlign: valuesAlign,
       maxLines: 1,
       textDirection: TextDirection.ltr,

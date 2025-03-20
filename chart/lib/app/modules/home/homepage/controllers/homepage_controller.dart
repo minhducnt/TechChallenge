@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -43,21 +44,21 @@ class HomepageController extends BaseController with GetTickerProviderStateMixin
           title: localeLang.chart,
           icon: FluentIcons.arrow_trending_20_regular,
           selectedIcon: FluentIcons.arrow_trending_20_filled,
-          iconSize: 20.sp,
+          iconSize: kIsWeb ? 24 : 20.sp,
           widget: const ChartView(),
         ),
         HomeTabInfo(
           title: localeLang.home,
           icon: FluentIcons.home_20_regular,
           selectedIcon: FluentIcons.home_20_filled,
-          iconSize: 20.sp,
+          iconSize: kIsWeb ? 24 : 20.sp,
           widget: const DashboardView(),
         ),
         HomeTabInfo(
           title: localeLang.favorite,
           icon: FluentIcons.heart_20_regular,
           selectedIcon: FluentIcons.heart_20_filled,
-          iconSize: 20.sp,
+          iconSize: kIsWeb ? 24 : 20.sp,
           widget: const BookmarkView(),
         ),
       ].obs;

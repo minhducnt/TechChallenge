@@ -31,8 +31,8 @@ class VerticalAxisDecoration extends DecorationPainter {
     this.textScale = 1.0,
     this.legendPosition = VerticalLegendPosition.bottom,
     this.legendFontStyle = const TextStyle(fontSize: 12.0),
-  }) : assert(axisStep > 0, 'axisStep must be greater than zero!'),
-       _endWithChart = endWithChart ? 1.0 : 0.0;
+  })  : assert(axisStep > 0, 'axisStep must be greater than zero!'),
+        _endWithChart = endWithChart ? 1.0 : 0.0;
 
   VerticalAxisDecoration._lerp({
     this.showLines = true,
@@ -121,22 +121,19 @@ class VerticalAxisDecoration extends DecorationPainter {
     final listSize = state.data.listSize;
     final itemWidth = (size.width - lineWidth) / listSize;
 
-    final paint =
-        Paint()
-          ..color = lineColor
-          ..style = PaintingStyle.stroke
-          ..strokeWidth = lineWidth;
+    final paint = Paint()
+      ..color = lineColor
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = lineWidth;
 
     final gridPath = Path();
 
     for (var i = 0; i <= listSize / axisStep; i++) {
       if (showLines) {
-        final showValuesTop =
-            legendPosition == VerticalLegendPosition.top
-                ? -((state.defaultMargin - marginNeeded()).top * (1 - _endWithChart))
-                : 0.0;
-        final showValuesBottom =
-            size.height +
+        final showValuesTop = legendPosition == VerticalLegendPosition.top
+            ? -((state.defaultMargin - marginNeeded()).top * (1 - _endWithChart))
+            : 0.0;
+        final showValuesBottom = size.height +
             (legendPosition == VerticalLegendPosition.bottom ? ((marginNeeded()).bottom * (1 - _endWithChart)) : 0.0);
 
         gridPath.moveTo(-marginNeeded().left + lineWidth / 2 + itemWidth * i * axisStep, showValuesBottom);
@@ -161,21 +158,24 @@ class VerticalAxisDecoration extends DecorationPainter {
 
       final textPainter = TextPainter(
         text: TextSpan(text: text, style: legendFontStyle),
-        textScaleFactor: textScale,
         textAlign: valuesAlign,
         maxLines: 1,
         textDirection: TextDirection.ltr,
-      )..layout(maxWidth: itemWidth * axisStep, minWidth: itemWidth * axisStep);
-      textPainter.paint(
-        canvas,
-        Offset(
-          state.defaultPadding.left + itemWidth * i * axisStep + (valuesPadding?.left ?? 0.0),
-          legendPosition == VerticalLegendPosition.top
-              ? (-(valuesPadding?.bottom ?? 0.0) - textPainter.height)
-              : ((marginNeeded().inflateSize(size)).height -
-                  ((valuesPadding?.bottom ?? 0.0) + textPainter.size.height)),
-        ),
+      )
+        ..textScaler = TextScaler.linear(textScale)
+        ..layout(
+          maxWidth: itemWidth * axisStep,
+          minWidth: itemWidth * axisStep,
+        );
+
+      final textOffset = Offset(
+        state.defaultPadding.left + itemWidth * i * axisStep + (valuesPadding?.left ?? 0.0),
+        legendPosition == VerticalLegendPosition.top
+            ? (-(valuesPadding?.bottom ?? 0.0) - textPainter.height)
+            : ((marginNeeded().inflateSize(size)).height - ((valuesPadding?.bottom ?? 0.0) + textPainter.size.height)),
       );
+
+      textPainter.paint(canvas, textOffset);
     }
 
     if (dashArray != null) {
@@ -202,7 +202,7 @@ class VerticalAxisDecoration extends DecorationPainter {
     final textPainter = TextPainter(
       text: TextSpan(text: text, style: style),
       maxLines: 1,
-      textScaleFactor: textScale,
+      textScaler: TextScaler.linear(textScale),
       textDirection: TextDirection.ltr,
     )..layout();
     return textPainter.size.height;

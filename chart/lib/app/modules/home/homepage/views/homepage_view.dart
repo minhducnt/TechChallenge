@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-// import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
-// import 'package:flutter_screenutil/flutter_screenutil.dart';
-// import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 
 import 'package:sof_tracker/app/data/di.dart';
-// import 'package:sof_tracker/app/global/styles/app_text_styles.dart';
 import 'package:sof_tracker/app/global/widgets/base/base_silver_view.dart';
 
 import '../controllers/homepage_controller.dart';
@@ -59,29 +55,35 @@ class HomepageView extends BaseSilverView<HomepageController> {
             //   leftCornerRadius: 32.r,
             //   borderColor: $r.theme.transparent,
             //   backgroundColor: theme.colorScheme.onInverseSurface,
-            //   tabBuilder: (index, isActive) => Padding(
-            //     padding: EdgeInsets.symmetric(vertical: 8.h),
-            //     child: Column(
-            //       mainAxisSize: MainAxisSize.min,
-            //       mainAxisAlignment: MainAxisAlignment.center,
-            //       children: [
-            //         Obx(
-            //           () => Icon(
-            //             isActive ? controller.tabs[index].selectedIcon : controller.tabs[index].icon,
-            //             size: controller.tabs[index].iconSize,
-            //             color: isActive ? theme.colorScheme.primary : $r.theme.neutral2,
-            //           ),
+            //   tabBuilder:
+            //       (index, isActive) => Padding(
+            //         padding: EdgeInsets.symmetric(vertical: 8.h),
+            //         child: Column(
+            //           mainAxisSize: MainAxisSize.min,
+            //           mainAxisAlignment: MainAxisAlignment.center,
+            //           children: [
+            //             Obx(
+            //               () => Expanded(
+            //                 child: Icon(
+            //                   isActive ? controller.tabs[index].selectedIcon : controller.tabs[index].icon,
+            //                   size: controller.tabs[index].iconSize,
+            //                   color: isActive ? theme.colorScheme.primary : $r.theme.neutral2,
+            //                 ),
+            //               ),
+            //             ),
+            //             Gap(4.h),
+            //             AnimatedDefaultTextStyle(
+            //               curve: Curves.easeOut,
+            //               duration: $r.times.oneSeconds,
+            //               style: text10.copyWith(
+            //                 color: isActive ? theme.colorScheme.primary : $r.theme.neutral2,
+            //                 fontSize: kIsWeb ? 12 : 10.sp,
+            //               ),
+            //               child: Text(controller.tabs[index].title),
+            //             ),
+            //           ],
             //         ),
-            //         Gap(4.h),
-            //         AnimatedDefaultTextStyle(
-            //           curve: Curves.easeOut,
-            //           duration: $r.times.oneSeconds,
-            //           style: text10.copyWith(color: isActive ? theme.colorScheme.primary : $r.theme.neutral2),
-            //           child: Text(controller.tabs[index].title),
-            //         ),
-            //       ],
-            //     ),
-            //   ),
+            //       ),
             // ),
           ),
         ),

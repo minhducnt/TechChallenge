@@ -1,7 +1,6 @@
 part of '../../../chart.dart';
 
 /// Show selected item in Cupertino style (Health app)
-@Deprecated('You can make this decoration and much more using WidgetDecoration. Check migration guide for more info')
 class SelectedItemDecoration extends DecorationPainter {
   /// Constructor for selected item decoration
   SelectedItemDecoration(
@@ -102,12 +101,15 @@ class SelectedItemDecoration extends DecorationPainter {
     final width = size.width;
     final selectedItem = state.data.items[selectedListIndex][item];
 
+    // Create a TextPainter for the max value
     final maxValuePainter = ValueDecoration.makeTextPainter(
       selectedItem.max?.toStringAsFixed(2) ?? '',
       width,
       selectedStyle,
       hasMaxWidth: false,
     );
+
+    // Ensure enough width for the text
     final itemWidth = max(
       state.itemOptions.minBarWidth ?? 0.0,
       min(state.itemOptions.maxBarWidth ?? double.infinity, size.width - state.itemOptions.padding.horizontal),
@@ -120,12 +122,13 @@ class SelectedItemDecoration extends DecorationPainter {
 
     final itemMaxValue = selectedItem.max ?? 0.0;
     final itemMinValue = selectedItem.min ?? 0.0;
-    // If item is empty, or it's max value is below chart's minValue then don't draw it.
-    // minValue can be below 0, this will just ensure that animation is drawn correctly.
+
+    // If the item is empty or its max value is below the chart's minValue, don't draw it
     if (selectedItem.isEmpty || itemMaxValue < state.data.minValue) {
       return;
     }
 
+    // Draw the rectangle for the selected item
     if (itemMinValue != 0.0) {
       canvas.drawRect(
         Rect.fromPoints(
@@ -140,6 +143,7 @@ class SelectedItemDecoration extends DecorationPainter {
       _drawLine(canvas, size, state);
     }
 
+    // Draw the rounded rectangle for the text background
     canvas.drawRRect(
       RRect.fromRectAndRadius(
         Rect.fromPoints(
@@ -165,6 +169,7 @@ class SelectedItemDecoration extends DecorationPainter {
       Paint()..color = selectedColor,
     );
 
+    // Paint the text
     maxValuePainter.paint(
       canvas,
       Offset(
@@ -223,6 +228,7 @@ class SelectedItemDecoration extends DecorationPainter {
       return;
     }
     _drawItem(canvas, size, state);
+
     if (showText) {
       _drawText(canvas, size, size.width, state);
     }
@@ -243,14 +249,13 @@ class SelectedItemDecoration extends DecorationPainter {
   @override
   EdgeInsets marginNeeded() {
     return EdgeInsets.only(
-      top:
-          showOnTop
-              ? (showText
-                  ? (selectedStyle.fontSize ?? 0) * 1.8
-                  : child != null
+      top: showOnTop
+          ? (showText
+              ? (selectedStyle.fontSize ?? 0) * 1.8
+              : child != null
                   ? topMargin
                   : 0.0)
-              : 0.0,
+          : 0.0,
     );
   }
 

@@ -7,6 +7,7 @@ import 'package:sof_tracker/app/global/utils/ui_utils.dart';
 import 'package:sof_tracker/app/global/widgets/base/base_controller.dart';
 import 'package:sof_tracker/app/global/widgets/utils/loading_widget.dart';
 
+
 abstract class BaseView<Controller extends BaseController> extends GetView<Controller> {
   const BaseView({super.key});
 
@@ -16,6 +17,8 @@ abstract class BaseView<Controller extends BaseController> extends GetView<Contr
   }
 
   Widget _renderView(BuildContext context) {
+
+
     return Scaffold(
       extendBody: true,
       resizeToAvoidBottomInset: false,
@@ -23,6 +26,7 @@ abstract class BaseView<Controller extends BaseController> extends GetView<Contr
       body: Stack(
         children: [
           Obx(() => controller.isLoading.value ? _renderLoading() : body(context)),
+          Obx(() => controller.isOverlayLoading.value ? _renderLoadingOverlay() : const SizedBox.shrink()),
           Obx(() => controller.isOverlayLoading.value ? _renderLoadingOverlay() : const SizedBox.shrink()),
         ],
       ),
