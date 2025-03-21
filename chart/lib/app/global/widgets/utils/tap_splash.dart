@@ -26,7 +26,7 @@ class TapSplash extends StatelessWidget {
         splashColor: $r.theme.neutral,
         borderRadius: customBorderRadius ?? BorderRadius.all(Radius.circular(radius)),
         overlayColor: WidgetStateProperty.all(
-          splashColor ?? Theme.of(context).colorScheme.primary.withOpacity(0.1),
+          splashColor ?? Theme.of(context).colorScheme.primary.withValues(alpha: 0.1),
         ),
         onTap: onTap,
         child: child,

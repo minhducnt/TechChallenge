@@ -204,6 +204,16 @@ class HorizontalAxisDecoration extends DecorationPainter {
 
       final positionEnd = size.width + (valuesPadding?.left ?? 0);
       final positionStart = -((valuesPadding?.right ?? 0.0) + _getTextPainter(_longestText).width);
+      final isEnd = maxValue == defaultValue + 1;
+
+      double adjustedYOffset = 0.0;
+      if (i == 0) {
+        adjustedYOffset = textPainter.height;
+      } else if (isEnd) {
+        adjustedYOffset = textPainter.height / 2 - 3;
+      } else {
+        adjustedYOffset += 7;
+      }
 
       textPainter.paint(
         canvas,
@@ -211,7 +221,7 @@ class HorizontalAxisDecoration extends DecorationPainter {
           legendPosition == HorizontalLegendPosition.end ? positionEnd : positionStart,
           height -
               axisStep * i * scale -
-              (textPainter.height + (valuesPadding?.bottom ?? 0.0)) +
+              (adjustedYOffset + (valuesPadding?.bottom ?? 0.0)) +
               (valuesPadding?.top ?? 0.0),
         ),
       );

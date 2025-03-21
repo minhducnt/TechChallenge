@@ -1,8 +1,7 @@
 import 'package:get/get.dart';
 
-import 'package:sof_tracker/app/modules/home/bookmark/controllers/bookmark_controller.dart';
-import 'package:sof_tracker/app/modules/home/chart/controllers/chart_controller.dart';
-import 'package:sof_tracker/app/modules/home/dashboard/controllers/dashboard_controller.dart';
+import 'package:sof_tracker/app/modules/home/bar_chart/controllers/bar_chart_controller.dart';
+import 'package:sof_tracker/app/modules/home/line_chart/controllers/line_chart_controller.dart';
 
 import '../controllers/homepage_controller.dart';
 
@@ -11,8 +10,7 @@ class HomepageBinding extends Bindings {
   void dependencies() {
     Get
       ..lazyPut<HomepageController>(() => HomepageController())
-      ..lazyPut<DashboardController>(() => DashboardController())
-      ..lazyPut<BookmarkController>(() => BookmarkController())
-      ..lazyPut<ChartController>(() => ChartController());
+      ..lazyPut<LineChartController>(() => LineChartController())
+      ..lazyPut<BarChartController>(() => BarChartController());
   }
 }

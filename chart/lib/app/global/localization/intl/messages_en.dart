@@ -24,27 +24,26 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "april": MessageLookupByLibrary.simpleMessage("April"),
     "august": MessageLookupByLibrary.simpleMessage("August"),
+    "barChart": MessageLookupByLibrary.simpleMessage("Bar Chart"),
     "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
-    "chart": MessageLookupByLibrary.simpleMessage("Chart"),
     "communication_error": MessageLookupByLibrary.simpleMessage(
       "There was an error with our communication with the servers.",
     ),
+    "currentMonth": MessageLookupByLibrary.simpleMessage("Current Month"),
     "december": MessageLookupByLibrary.simpleMessage("December"),
     "doubleTabToExit": MessageLookupByLibrary.simpleMessage(
       "Press back again to exit",
     ),
-    "favorite": MessageLookupByLibrary.simpleMessage("Favorite"),
     "february": MessageLookupByLibrary.simpleMessage("February"),
-    "home": MessageLookupByLibrary.simpleMessage("Home"),
+    "friday": MessageLookupByLibrary.simpleMessage("FRI"),
     "january": MessageLookupByLibrary.simpleMessage("January"),
     "july": MessageLookupByLibrary.simpleMessage("July"),
     "june": MessageLookupByLibrary.simpleMessage("June"),
+    "lineChart": MessageLookupByLibrary.simpleMessage("Line Chart"),
     "loadingText": MessageLookupByLibrary.simpleMessage("Loading..."),
     "march": MessageLookupByLibrary.simpleMessage("March"),
     "may": MessageLookupByLibrary.simpleMessage("May"),
-    "noBookmarks": MessageLookupByLibrary.simpleMessage(
-      "You have not bookmarked anyone yet",
-    ),
+    "monday": MessageLookupByLibrary.simpleMessage("MON"),
     "noData": MessageLookupByLibrary.simpleMessage(
       "Currently no data available",
     ),
@@ -55,10 +54,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "october": MessageLookupByLibrary.simpleMessage("October"),
     "ok": MessageLookupByLibrary.simpleMessage("OK"),
     "pleaseTryAgain": MessageLookupByLibrary.simpleMessage("Please try again"),
-    "reputation": MessageLookupByLibrary.simpleMessage("Reputation"),
-    "reputationHistory": MessageLookupByLibrary.simpleMessage(
-      "Reputation History",
-    ),
+    "saturday": MessageLookupByLibrary.simpleMessage("SAT"),
     "september": MessageLookupByLibrary.simpleMessage("September"),
     "server_failure": MessageLookupByLibrary.simpleMessage(
       "Server failure encountered.",
@@ -72,10 +68,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "somethingWentWrongTryAgain": MessageLookupByLibrary.simpleMessage(
       "Đã xảy ra lỗi. Vui lòng thử lại",
     ),
+    "sunday": MessageLookupByLibrary.simpleMessage("SUN"),
+    "thursday": MessageLookupByLibrary.simpleMessage("THU"),
     "tryAgain": MessageLookupByLibrary.simpleMessage("Try again"),
+    "tuesday": MessageLookupByLibrary.simpleMessage("TUE"),
     "unauthenticated_error": MessageLookupByLibrary.simpleMessage(
       "Unauthenticated error",
     ),
-    "viewList": MessageLookupByLibrary.simpleMessage("View List"),
+    "wednesday": MessageLookupByLibrary.simpleMessage("WED"),
   };
 }

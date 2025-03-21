@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
+
 import 'package:sof_tracker/app/data/di.dart';
 import 'package:sof_tracker/app/global/utils/ui_utils.dart';
 
@@ -65,7 +66,7 @@ class _ButtonContainerState extends State<ButtonContainer> {
       child: TextButton(
         style: ButtonStyle(
           overlayColor: WidgetStateProperty.resolveWith(
-            (states) => widget.splashColor ?? widget.textColor!.withOpacity(0.1),
+            (states) => widget.splashColor ?? widget.textColor!.withValues(alpha: 0.1),
           ),
           padding: WidgetStatePropertyAll(
             EdgeInsetsDirectional.only(

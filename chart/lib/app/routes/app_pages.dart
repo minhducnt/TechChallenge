@@ -1,16 +1,12 @@
 import 'package:get/get.dart';
 
 import '../data/di.dart';
-import '../modules/home/chart/bindings/chart_binding.dart';
-import '../modules/home/chart/views/chart_view.dart';
-import '../modules/home/bookmark/bindings/bookmark_binding.dart';
-import '../modules/home/bookmark/views/bookmark_view.dart';
-import '../modules/home/dashboard/bindings/dashboard_binding.dart';
-import '../modules/home/dashboard/views/dashboard_view.dart';
+import '../modules/home/bar_chart/bindings/bar_chart_binding.dart';
+import '../modules/home/bar_chart/views/bar_chart_view.dart';
+import '../modules/home/line_chart/bindings/line_chart_binding.dart';
+import '../modules/home/line_chart/views/line_chart_view.dart';
 import '../modules/home/homepage/bindings/homepage_binding.dart';
 import '../modules/home/homepage/views/homepage_view.dart';
-import '../modules/home/reputation/bindings/reputation_binding.dart';
-import '../modules/home/reputation/views/reputation_view.dart';
 import '../modules/splash/bindings/splash_binding.dart';
 import '../modules/splash/views/splash_view.dart';
 
@@ -39,27 +35,15 @@ class AppPages {
         transitionDuration: $r.times.med,
         children: [
           GetPage(
-            name: _Paths.DASHBOARD,
-            page: () => const DashboardView(),
-            binding: DashboardBinding(),
+            name: _Paths.LINE_CHART,
+            page: () => const LineChartView(),
+            binding: LineChartBinding(),
           ),
           GetPage(
-            name: _Paths.BOOKMARK,
-            page: () => const BookmarkView(),
-            binding: BookmarkBinding(),
+            name: _Paths.BAR_CHART,
+            page: () => const BarChartView(),
+            binding: BarChartBinding(),
           ),
         ]),
-
-    //* Main
-    GetPage(
-      name: _Paths.REPUTATION,
-      page: () => const ReputationView(),
-      binding: ReputationBinding(),
-    ),
-    GetPage(
-      name: _Paths.CHART,
-      page: () => const ChartView(),
-      binding: ChartBinding(),
-    ),
   ];
 }

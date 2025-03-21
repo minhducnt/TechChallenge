@@ -23,14 +23,14 @@ class SplashView extends GetView<SplashController> {
         systemNavigationBarColor: Theme.of(context).colorScheme.onInverseSurface,
       ),
       child: Stack(
-        alignment: Alignment.bottomCenter,
+        alignment: Alignment.center,
         children: [
           FlutterSplashScreen.fadeIn(
             duration: $r.times.twoSeconds,
             animationDuration: $r.times.med,
             backgroundColor: Theme.of(context).colorScheme.onInverseSurface,
             childWidget: SvgAsset(
-              Assets.svgs.sofLogo.path,
+              Assets.backgrounds.sofLogo.path,
               height: 48.h,
               width: 48.w,
             ),

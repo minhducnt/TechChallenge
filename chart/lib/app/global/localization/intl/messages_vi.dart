@@ -24,28 +24,27 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "april": MessageLookupByLibrary.simpleMessage("Tháng 4"),
     "august": MessageLookupByLibrary.simpleMessage("Tháng 8"),
+    "barChart": MessageLookupByLibrary.simpleMessage("Biểu đồ cột"),
     "cancel": MessageLookupByLibrary.simpleMessage("Hủy"),
-    "chart": MessageLookupByLibrary.simpleMessage("Thống kê"),
     "communication_error": MessageLookupByLibrary.simpleMessage(
       "Đã xảy ra lỗi trong quá trình giao tiếp với các máy chủ",
     ),
+    "currentMonth": MessageLookupByLibrary.simpleMessage("Tháng hiện tại"),
     "december": MessageLookupByLibrary.simpleMessage("Tháng 12"),
     "doubleTabToExit": MessageLookupByLibrary.simpleMessage(
       "Nhấp lần nữa để thoát",
     ),
-    "favorite": MessageLookupByLibrary.simpleMessage("Yêu thích"),
     "february": MessageLookupByLibrary.simpleMessage("Tháng 2"),
-    "home": MessageLookupByLibrary.simpleMessage("Trang chủ"),
+    "friday": MessageLookupByLibrary.simpleMessage("Sáu"),
     "january": MessageLookupByLibrary.simpleMessage("Tháng 1"),
     "july": MessageLookupByLibrary.simpleMessage("Tháng 7"),
     "june": MessageLookupByLibrary.simpleMessage("Tháng 6"),
+    "lineChart": MessageLookupByLibrary.simpleMessage("Biểu đồ đường"),
     "loadingText": MessageLookupByLibrary.simpleMessage("Đang tải..."),
     "march": MessageLookupByLibrary.simpleMessage("Tháng 3"),
     "may": MessageLookupByLibrary.simpleMessage("Tháng 5"),
-    "noBookmarks": MessageLookupByLibrary.simpleMessage(
-      "Hiện tại bạn chưa đánh dấu ai cả",
-    ),
-    "noData": MessageLookupByLibrary.simpleMessage("Hiện tại không có dữ liệu"),
+    "monday": MessageLookupByLibrary.simpleMessage("Hai"),
+    "noData": MessageLookupByLibrary.simpleMessage("Không có dữ liệu"),
     "noInternetConnection": MessageLookupByLibrary.simpleMessage(
       "Không có kết nối Internet. Vui lòng thử lại sau",
     ),
@@ -53,8 +52,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "october": MessageLookupByLibrary.simpleMessage("Tháng 10"),
     "ok": MessageLookupByLibrary.simpleMessage("OK"),
     "pleaseTryAgain": MessageLookupByLibrary.simpleMessage("Vui lòng thử lại"),
-    "reputation": MessageLookupByLibrary.simpleMessage("Uy tín"),
-    "reputationHistory": MessageLookupByLibrary.simpleMessage("Lịch sử uy tín"),
+    "saturday": MessageLookupByLibrary.simpleMessage("Bảy"),
     "september": MessageLookupByLibrary.simpleMessage("Tháng 9"),
     "server_failure": MessageLookupByLibrary.simpleMessage(
       "Đã gặp sự cố máy chủ",
@@ -66,10 +64,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "somethingWentWrongTryAgain": MessageLookupByLibrary.simpleMessage(
       "Đã xảy ra lỗi. Vui lòng thử lại",
     ),
+    "sunday": MessageLookupByLibrary.simpleMessage("CN"),
+    "thursday": MessageLookupByLibrary.simpleMessage("Năm"),
     "tryAgain": MessageLookupByLibrary.simpleMessage("Thử lại"),
+    "tuesday": MessageLookupByLibrary.simpleMessage("Ba"),
     "unauthenticated_error": MessageLookupByLibrary.simpleMessage(
       "Không xác thực được",
     ),
-    "viewList": MessageLookupByLibrary.simpleMessage("Xem danh sách"),
+    "wednesday": MessageLookupByLibrary.simpleMessage("Tư"),
   };
 }

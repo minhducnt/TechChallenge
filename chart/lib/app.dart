@@ -63,11 +63,10 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
               GlobalCupertinoLocalizations.delegate,
             ],
             supportedLocales: I10n.delegate.supportedLocales,
-            localeResolutionCallback:
-                (deviceLocale, supportedLocales) =>
-                    supportedLocales.map((e) => e.languageCode).contains(deviceLocale?.languageCode)
-                        ? deviceLocale
-                        : $r.defaultLocale,
+            localeResolutionCallback: (deviceLocale, supportedLocales) =>
+                supportedLocales.map((e) => e.languageCode).contains(deviceLocale?.languageCode)
+                    ? deviceLocale
+                    : $r.defaultLocale,
             //* Routes
             getPages: AppPages.routes,
             initialRoute: AppPages.INITIAL,

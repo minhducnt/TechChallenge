@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -11,11 +10,10 @@ import 'package:sof_tracker/app/global/constants/enums/systems.dart';
 import 'package:sof_tracker/app/global/utils/ui_utils.dart';
 import 'package:sof_tracker/app/global/utils/utils.dart';
 import 'package:sof_tracker/app/global/widgets/base/base_controller.dart';
-import 'package:sof_tracker/app/modules/home/bookmark/controllers/bookmark_controller.dart';
-import 'package:sof_tracker/app/modules/home/bookmark/views/bookmark_view.dart';
-import 'package:sof_tracker/app/modules/home/chart/views/chart_view.dart';
-import 'package:sof_tracker/app/modules/home/dashboard/controllers/dashboard_controller.dart';
-import 'package:sof_tracker/app/modules/home/dashboard/views/dashboard_view.dart';
+import 'package:sof_tracker/app/modules/home/bar_chart/controllers/bar_chart_controller.dart';
+import 'package:sof_tracker/app/modules/home/bar_chart/views/bar_chart_view.dart';
+import 'package:sof_tracker/app/modules/home/line_chart/controllers/line_chart_controller.dart';
+import 'package:sof_tracker/app/modules/home/line_chart/views/line_chart_view.dart';
 
 class HomepageController extends BaseController with GetTickerProviderStateMixin {
   //* Variables
@@ -38,47 +36,34 @@ class HomepageController extends BaseController with GetTickerProviderStateMixin
   }
 
   //* Navigation
-  final tabs =
-      [
-        HomeTabInfo(
-          title: localeLang.chart,
-          icon: FluentIcons.arrow_trending_20_regular,
-          selectedIcon: FluentIcons.arrow_trending_20_filled,
-          iconSize: kIsWeb ? 24 : 20.sp,
-          widget: const ChartView(),
-        ),
-        HomeTabInfo(
-          title: localeLang.home,
-          icon: FluentIcons.home_20_regular,
-          selectedIcon: FluentIcons.home_20_filled,
-          iconSize: kIsWeb ? 24 : 20.sp,
-          widget: const DashboardView(),
-        ),
-        HomeTabInfo(
-          title: localeLang.favorite,
-          icon: FluentIcons.heart_20_regular,
-          selectedIcon: FluentIcons.heart_20_filled,
-          iconSize: kIsWeb ? 24 : 20.sp,
-          widget: const BookmarkView(),
-        ),
-      ].obs;
+  final tabs = [
+    HomeTabInfo(
+      title: localeLang.barChart,
+      icon: FluentIcons.data_bar_vertical_20_regular,
+      selectedIcon: FluentIcons.data_bar_vertical_20_filled,
+      iconSize: 20.sp,
+      widget: BarChartView(),
+    ),
+    HomeTabInfo(
+      title: localeLang.lineChart,
+      icon: FluentIcons.data_trending_20_regular,
+      selectedIcon: FluentIcons.data_trending_20_filled,
+      iconSize: 20.sp,
+      widget: const LineChartView(),
+    ),
+  ].obs;
 
   Future<void> onItemTapped(int index) async {
     currentTabIndex.value = index;
     pageController.jumpToPage(index);
-    index == 0
-        ? Get.find<DashboardController>().pagingController.refresh()
-        : Get.find<BookmarkController>().pagingController.refresh();
-
+    index == 0 ? Get.find<LineChartController>().refresh() : Get.find<BarChartController>().refresh();
     update();
   }
 
   Future<void> onItemSwipe(int index) async {
     currentTabIndex.value = index;
     await pageController.animateToPage(index, duration: $r.times.pageTransition, curve: Curves.easeInOut);
-    index == 0
-        ? Get.find<DashboardController>().pagingController.refresh()
-        : Get.find<BookmarkController>().pagingController.refresh();
+    index == 0 ? Get.find<LineChartController>().refresh() : Get.find<BarChartController>().refresh();
     update();
   }
 

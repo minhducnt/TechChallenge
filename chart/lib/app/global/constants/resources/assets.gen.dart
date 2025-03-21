@@ -13,6 +13,102 @@ import 'package:flutter_svg/flutter_svg.dart' as _svg;
 import 'package:lottie/lottie.dart' as _lottie;
 import 'package:vector_graphics/vector_graphics.dart' as _vg;
 
+class $AssetsBackgroundsGen {
+  const $AssetsBackgroundsGen();
+
+  /// File path: assets/backgrounds/background_pattern.svg
+  SvgGenImage get backgroundPattern =>
+      const SvgGenImage('assets/backgrounds/background_pattern.svg');
+
+  /// File path: assets/backgrounds/bronze_medal.svg
+  SvgGenImage get bronzeMedal =>
+      const SvgGenImage('assets/backgrounds/bronze_medal.svg');
+
+  /// File path: assets/backgrounds/gold_medal.svg
+  SvgGenImage get goldMedal =>
+      const SvgGenImage('assets/backgrounds/gold_medal.svg');
+
+  /// File path: assets/backgrounds/sliver_medal.svg
+  SvgGenImage get sliverMedal =>
+      const SvgGenImage('assets/backgrounds/sliver_medal.svg');
+
+  /// File path: assets/backgrounds/sof_logo.svg
+  SvgGenImage get sofLogo =>
+      const SvgGenImage('assets/backgrounds/sof_logo.svg');
+
+  /// File path: assets/backgrounds/vectorCurved1.svg
+  SvgGenImage get vectorCurved1 =>
+      const SvgGenImage('assets/backgrounds/vectorCurved1.svg');
+
+  /// File path: assets/backgrounds/vectorCurved2.svg
+  SvgGenImage get vectorCurved2 =>
+      const SvgGenImage('assets/backgrounds/vectorCurved2.svg');
+
+  /// File path: assets/backgrounds/vectorCurved3.svg
+  SvgGenImage get vectorCurved3 =>
+      const SvgGenImage('assets/backgrounds/vectorCurved3.svg');
+
+  /// File path: assets/backgrounds/vectorCurved4.svg
+  SvgGenImage get vectorCurved4 =>
+      const SvgGenImage('assets/backgrounds/vectorCurved4.svg');
+
+  /// List of all assets
+  List<SvgGenImage> get values => [
+        backgroundPattern,
+        bronzeMedal,
+        goldMedal,
+        sliverMedal,
+        sofLogo,
+        vectorCurved1,
+        vectorCurved2,
+        vectorCurved3,
+        vectorCurved4
+      ];
+}
+
+class $AssetsIconsGen {
+  const $AssetsIconsGen();
+
+  /// File path: assets/icons/circle_arrow_left_01_filled.svg
+  SvgGenImage get circleArrowLeft01Filled =>
+      const SvgGenImage('assets/icons/circle_arrow_left_01_filled.svg');
+
+  /// File path: assets/icons/circle_arrow_left_01_regular.svg
+  SvgGenImage get circleArrowLeft01Regular =>
+      const SvgGenImage('assets/icons/circle_arrow_left_01_regular.svg');
+
+  /// File path: assets/icons/circle_arrow_right_01_filled.svg
+  SvgGenImage get circleArrowRight01Filled =>
+      const SvgGenImage('assets/icons/circle_arrow_right_01_filled.svg');
+
+  /// File path: assets/icons/circle_arrow_right_01_regular.svg
+  SvgGenImage get circleArrowRight01Regular =>
+      const SvgGenImage('assets/icons/circle_arrow_right_01_regular.svg');
+
+  /// File path: assets/icons/info_circle_filled.svg
+  SvgGenImage get infoCircleFilled =>
+      const SvgGenImage('assets/icons/info_circle_filled.svg');
+
+  /// File path: assets/icons/info_circle_regular.svg
+  SvgGenImage get infoCircleRegular =>
+      const SvgGenImage('assets/icons/info_circle_regular.svg');
+
+  /// File path: assets/icons/reload_circle_regular.svg
+  SvgGenImage get reloadCircleRegular =>
+      const SvgGenImage('assets/icons/reload_circle_regular.svg');
+
+  /// List of all assets
+  List<SvgGenImage> get values => [
+        circleArrowLeft01Filled,
+        circleArrowLeft01Regular,
+        circleArrowRight01Filled,
+        circleArrowRight01Regular,
+        infoCircleFilled,
+        infoCircleRegular,
+        reloadCircleRegular
+      ];
+}
+
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
@@ -72,57 +168,6 @@ class $AssetsLottiesGen {
   List<LottieGenImage> get values => [alert, confirm, error, noDataFound];
 }
 
-class $AssetsSvgsGen {
-  const $AssetsSvgsGen();
-
-  /// File path: assets/svgs/background_pattern.svg
-  SvgGenImage get backgroundPattern =>
-      const SvgGenImage('assets/svgs/background_pattern.svg');
-
-  /// File path: assets/svgs/bronze_medal.svg
-  SvgGenImage get bronzeMedal =>
-      const SvgGenImage('assets/svgs/bronze_medal.svg');
-
-  /// File path: assets/svgs/gold_medal.svg
-  SvgGenImage get goldMedal => const SvgGenImage('assets/svgs/gold_medal.svg');
-
-  /// File path: assets/svgs/sliver_medal.svg
-  SvgGenImage get sliverMedal =>
-      const SvgGenImage('assets/svgs/sliver_medal.svg');
-
-  /// File path: assets/svgs/sof_logo.svg
-  SvgGenImage get sofLogo => const SvgGenImage('assets/svgs/sof_logo.svg');
-
-  /// File path: assets/svgs/vectorCurved1.svg
-  SvgGenImage get vectorCurved1 =>
-      const SvgGenImage('assets/svgs/vectorCurved1.svg');
-
-  /// File path: assets/svgs/vectorCurved2.svg
-  SvgGenImage get vectorCurved2 =>
-      const SvgGenImage('assets/svgs/vectorCurved2.svg');
-
-  /// File path: assets/svgs/vectorCurved3.svg
-  SvgGenImage get vectorCurved3 =>
-      const SvgGenImage('assets/svgs/vectorCurved3.svg');
-
-  /// File path: assets/svgs/vectorCurved4.svg
-  SvgGenImage get vectorCurved4 =>
-      const SvgGenImage('assets/svgs/vectorCurved4.svg');
-
-  /// List of all assets
-  List<SvgGenImage> get values => [
-        backgroundPattern,
-        bronzeMedal,
-        goldMedal,
-        sliverMedal,
-        sofLogo,
-        vectorCurved1,
-        vectorCurved2,
-        vectorCurved3,
-        vectorCurved4
-      ];
-}
-
 class $AssetsTranslationsGen {
   const $AssetsTranslationsGen();
 
@@ -139,9 +184,10 @@ class $AssetsTranslationsGen {
 class Assets {
   const Assets._();
 
+  static const $AssetsBackgroundsGen backgrounds = $AssetsBackgroundsGen();
+  static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
   static const $AssetsLottiesGen lotties = $AssetsLottiesGen();
-  static const $AssetsSvgsGen svgs = $AssetsSvgsGen();
   static const $AssetsTranslationsGen translations = $AssetsTranslationsGen();
 }
 

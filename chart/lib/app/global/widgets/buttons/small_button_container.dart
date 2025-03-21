@@ -46,11 +46,9 @@ class SmallButtonContainer extends StatelessWidget {
       width: cusWidth ?? width / 4,
       child: TextButton(
         style: ButtonStyle(
-          overlayColor: WidgetStateProperty.all(textColor!.withOpacity(0.10)),
+          overlayColor: WidgetStateProperty.all(textColor!.withValues(alpha: 0.10)),
           backgroundColor: WidgetStateProperty.resolveWith(
-            (states) => states.contains(WidgetState.disabled)
-                ? Colors.grey.shade400
-                : color!,
+            (states) => states.contains(WidgetState.disabled) ? Colors.grey.shade400 : color!,
           ),
           shape: WidgetStateProperty.all(
             RoundedRectangleBorder(

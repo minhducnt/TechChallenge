@@ -6,8 +6,7 @@ import 'package:sof_tracker/app/data/models/common/alert.model.dart';
 import 'package:sof_tracker/app/global/constants/enums/systems.dart';
 
 /// Repository function
-typedef RepositoryFunction<T> = Future<DC<AlertModel, HttpResponse<T>>>
-    Function();
+typedef RepositoryFunction<T> = Future<DC<AlertModel, HttpResponse<T>>> Function();
 
 /// Handle API error
 Future<DC<AlertModel, HttpResponse<T>>> exceptionHandler<T>(

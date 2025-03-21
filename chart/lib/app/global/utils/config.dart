@@ -11,8 +11,8 @@ class AppConfig {
   final appName = 'Sof Tracker';
 
   //* Language
-  static const defaultLanguageCode = 'en';
-  static const defaultIsoCountryCode = 'US';
+  static const defaultLanguageCode = 'es';
+  static const defaultIsoCountryCode = 'ES';
   static const alternativeLanguageCode = 'vi';
   static const alternativeIsoCountryCode = 'VN';
 

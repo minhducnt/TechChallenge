@@ -41,6 +41,7 @@ class CustomDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return DialogBackground(
       dismissable: isDismissible,
       onDismiss: onDismiss,
@@ -60,7 +61,7 @@ class CustomDialog extends StatelessWidget {
                   children: [
                     Icon(
                       FluentIcons.info_20_regular,
-                      color: titleIconColor ?? Theme.of(context).colorScheme.primary,
+                      color: titleIconColor ?? theme.colorScheme.primary,
                       size: 18.sp,
                     ),
                     const Gap(8),
@@ -70,7 +71,7 @@ class CustomDialog extends StatelessWidget {
                 child: Text(
                   title,
                   style: text16.bold.copyWith(
-                    color: titleColor ?? Theme.of(context).colorScheme.primary,
+                    color: titleColor ?? theme.colorScheme.primary,
                     overflow: TextOverflow.ellipsis,
                   ),
                   textAlign: TextAlign.center,
@@ -96,20 +97,20 @@ class CustomDialog extends StatelessWidget {
               color: $r.theme.transparent,
               text: localeLang.cancel,
               radius: 8.r,
-              borderColor: Theme.of(context).colorScheme.primary,
-              textColor: Theme.of(context).colorScheme.primary,
+              borderColor: theme.colorScheme.primary,
+              textColor: theme.colorScheme.primary,
               onTap: () => Navigator.of(context, rootNavigator: true).pop(true),
             ),
           SmallButtonContainer(
             marginRight: 20.w,
             marginLeft: hasCancelButton != true ? 20.w : 10.w,
-            color: buttonColor ?? Theme.of(context).colorScheme.primary,
+            color: buttonColor ?? theme.colorScheme.primary,
             text: buttonText ?? localeLang.ok,
             radius: 8.r,
             status: isLoading,
             isTextBold: isButtonBold,
-            borderColor: Theme.of(context).colorScheme.primary.withValues(alpha: 0.1),
-            textColor: Theme.of(context).colorScheme.onPrimary,
+            borderColor: theme.colorScheme.primary.withValues(alpha: 0.1),
+            textColor: theme.colorScheme.onPrimary,
             onTap: () {
               onTap?.call();
               Navigator.of(context, rootNavigator: true).pop(true);

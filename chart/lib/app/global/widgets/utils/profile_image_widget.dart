@@ -24,7 +24,7 @@ class ProfileImageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final onPrimaryColor = Theme.of(context).colorScheme.onPrimary.withOpacity(0.8);
+    final onPrimaryColor = Theme.of(context).colorScheme.onPrimary.withValues(alpha: 0.8);
 
     final defaultImage = Image.asset(
       Assets.images.profilePic.path,
@@ -37,7 +37,7 @@ class ProfileImageWidget extends StatelessWidget {
     return ClipOval(
       child: CircleAvatar(
         maxRadius: 35,
-        backgroundColor: Theme.of(context).colorScheme.onSurface.withOpacity(0.5),
+        backgroundColor: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.5),
         child: !isNullOrEmpty(img) && img != ''
             ? CachedNetworkImage(
                 imageUrl: img ?? '',

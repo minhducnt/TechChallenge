@@ -46,8 +46,8 @@ class SkeletonLoader extends StatelessWidget {
 
     return isActive
         ? Shimmer.fromColors(
-            baseColor: baseColor ?? colorScheme.withOpacity(0.05),
-            highlightColor: highlightColor ?? colorScheme.withOpacity(0.2),
+            baseColor: baseColor ?? colorScheme.withValues(alpha: 0.05),
+            highlightColor: highlightColor ?? colorScheme.withValues(alpha: 0.2),
             direction: shimmerDirection,
             period: period,
             child: child,

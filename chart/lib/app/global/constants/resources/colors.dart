@@ -8,7 +8,8 @@ class AppColorStyles {
   final black = Colors.black;
   final white = Colors.white;
   final red = Colors.red;
-  final blue = Colors.blue;
+  final blue = Color(0xff006DFE);
+  final green = Color(0xff00C48C);
 
   //* Alert colors
   final warning = Colors.amber.shade600;
@@ -24,4 +25,8 @@ class AppColorStyles {
   final neutral2 = const Color(0xffB5B5B5);
   final neutral3 = const Color(0xffD7D7D7);
   final neutral4 = const Color(0xffF8F8F8);
+
+  //* Charts
+  final chart1 = const Color(0xff7193FB);
+  final chart2 = const Color(0xffC2F847);
 }

@@ -175,49 +175,9 @@ class I10n {
     );
   }
 
-  /// `You have not bookmarked anyone yet`
-  String get noBookmarks {
-    return Intl.message(
-      'You have not bookmarked anyone yet',
-      name: 'noBookmarks',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `View List`
-  String get viewList {
-    return Intl.message('View List', name: 'viewList', desc: '', args: []);
-  }
-
-  /// `Home`
-  String get home {
-    return Intl.message('Home', name: 'home', desc: '', args: []);
-  }
-
-  /// `Favorite`
-  String get favorite {
-    return Intl.message('Favorite', name: 'favorite', desc: '', args: []);
-  }
-
-  /// `Reputation History`
-  String get reputationHistory {
-    return Intl.message(
-      'Reputation History',
-      name: 'reputationHistory',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Reputation`
-  String get reputation {
-    return Intl.message('Reputation', name: 'reputation', desc: '', args: []);
-  }
-
-  /// `Chart`
-  String get chart {
-    return Intl.message('Chart', name: 'chart', desc: '', args: []);
+  /// `Line Chart`
+  String get lineChart {
+    return Intl.message('Line Chart', name: 'lineChart', desc: '', args: []);
   }
 
   /// `January`
@@ -279,6 +239,56 @@ class I10n {
   String get december {
     return Intl.message('December', name: 'december', desc: '', args: []);
   }
+
+  /// `Current Month`
+  String get currentMonth {
+    return Intl.message(
+      'Current Month',
+      name: 'currentMonth',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bar Chart`
+  String get barChart {
+    return Intl.message('Bar Chart', name: 'barChart', desc: '', args: []);
+  }
+
+  /// `MON`
+  String get monday {
+    return Intl.message('MON', name: 'monday', desc: '', args: []);
+  }
+
+  /// `TUE`
+  String get tuesday {
+    return Intl.message('TUE', name: 'tuesday', desc: '', args: []);
+  }
+
+  /// `WED`
+  String get wednesday {
+    return Intl.message('WED', name: 'wednesday', desc: '', args: []);
+  }
+
+  /// `THU`
+  String get thursday {
+    return Intl.message('THU', name: 'thursday', desc: '', args: []);
+  }
+
+  /// `FRI`
+  String get friday {
+    return Intl.message('FRI', name: 'friday', desc: '', args: []);
+  }
+
+  /// `SAT`
+  String get saturday {
+    return Intl.message('SAT', name: 'saturday', desc: '', args: []);
+  }
+
+  /// `SUN`
+  String get sunday {
+    return Intl.message('SUN', name: 'sunday', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<I10n> {
@@ -287,6 +297,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<I10n> {
   List<Locale> get supportedLocales {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'en'),
+      Locale.fromSubtags(languageCode: 'es'),
       Locale.fromSubtags(languageCode: 'vi'),
     ];
   }
